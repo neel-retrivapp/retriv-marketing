@@ -722,3 +722,67 @@ mark {
   font-weight: 800;
   flex-shrink: 0;
 }
+
+/* ─── We find it (dark section) ──────────────────────────────── */
+.find { background: var(--ink); color: var(--on-dark); }
+.find .lead { color: var(--on-dark-2); margin-top: 18px; max-width: 32em; }
+.eyebrow--lime { color: var(--lime); }
+.find :focus-visible { outline-color: var(--lime); }
+
+.find-grid {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .find-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+.find-visual { display: grid; gap: 14px; max-width: 480px; width: 100%; justify-self: center; }
+
+.sold-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--green-tint);
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.sold-banner-icon {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  flex-shrink: 0;
+}
+.sold-banner-icon svg { width: 18px; height: 18px; }
+.sold-banner b { display: block; color: var(--green); font-size: 16px; }
+.sold-banner small { display: block; font-size: 14px; color: var(--text-2); }
+
+.box-label {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 24px);
+  background: var(--surface);
+  color: var(--ink);
+  border: 3px solid var(--lime);
+  border-radius: var(--radius-card);
+  padding: clamp(18px, 3vw, 26px);
+}
+.box-label-qr { width: clamp(96px, 22vw, 132px); height: auto; flex-shrink: 0; border-radius: 6px; }
+.box-label-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--olive);
+  background: var(--lime-tint);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.box-label-name { margin-top: 8px; font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.box-label-where { margin-top: 8px; font-size: 15px; color: var(--muted); }
