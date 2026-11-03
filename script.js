@@ -1,11 +1,10 @@
 // ═══ CONFIG ════════════════════════════════════════════════════
-// TODO(waitlist): set this to the early-access provider's endpoint before
-// launch (Formspree, Mailchimp/Kit, our own API, …). The form POSTs JSON:
-//   { email, persona, source: 'retriv.app' }
-// and treats any 2xx response as success. While it's empty, the live site
-// asks people to email hello@retriv.app instead of silently dropping them
-// (on localhost it simulates success so the flow can be reviewed).
-const WAITLIST_ENDPOINT = '';
+// Early-access sign-ups go to the Retriv API, which stores them and syncs
+// them to MailerLite (retriv-api: routes/waitlist.js). The form POSTs JSON:
+//   { email, persona, source: 'retriv.app', website }   ('website' = spam trap)
+// and treats any 2xx response as success. If this is ever emptied, the live
+// site asks people to email hello@retriv.app instead of dropping sign-ups.
+const WAITLIST_ENDPOINT = 'https://api-dev.retriv.app/api/waitlist';
 // ═══════════════════════════════════════════════════════════════
 
 // ─── Mobile menu ────────────────────────────────────────────────
@@ -128,7 +127,11 @@ document.addEventListener('click', (e) => {
     } catch {
       throw new Error("We couldn't reach the server. Check your connection and try again.");
     }
-    if (!res.ok) throw new Error('Something went wrong on our side. Please try again in a moment.');
+    if (!res.ok) {
+      // Show the API's own message (e.g. the rate limit) when it sends one
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || 'Something went wrong on our side. Please try again in a moment.');
+    }
   }
 
   form.addEventListener('submit', async (e) => {
@@ -138,12 +141,11 @@ document.addEventListener('click', (e) => {
     const problem = emailProblem();
     showEmailError(problem);
     if (problem) { email.focus(); return; }
-    // Spam trap filled in: pretend it worked and drop it
-    if (form.website.value) { form.hidden = true; success.hidden = false; return; }
 
     setLoading(true);
     try {
-      await send({ email: email.value.trim(), persona: form.persona.value || null, source: 'retriv.app' });
+      // The API also checks the spam trap, so bots get a normal-looking success
+      await send({ email: email.value.trim(), persona: form.persona.value || null, source: 'retriv.app', website: form.website.value });
       form.hidden = true;
       success.hidden = false;
       success.focus();
