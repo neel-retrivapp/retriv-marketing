@@ -786,3 +786,48 @@ mark {
 }
 .box-label-name { margin-top: 8px; font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
 .box-label-where { margin-top: 8px; font-size: 15px; color: var(--muted); }
+
+/* ─── AI channel picks ───────────────────────────────────────── */
+.channels-grid {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .channels-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+}
+.channels-copy .lead { margin-top: 18px; }
+.channels-note {
+  margin-top: 22px;
+  padding-left: 14px;
+  border-left: 3px solid var(--lime-strong);
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.channel-cards { list-style: none; display: grid; gap: 12px; }
+.channel-card { padding: 20px 22px; }
+.channel-card--best { border: 2.5px solid var(--lime-strong); box-shadow: var(--shadow-card); }
+.channel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.channel-name { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+.channel-badge, .channel-soon {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.channel-badge { background: var(--lime); color: var(--on-lime); }
+.channel-soon { background: var(--surface-2); color: var(--muted); }
+.channel-price { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.channel-reason { margin-top: 2px; font-size: 15px; color: var(--text-2); }
+
+.channel-bars { margin-top: 14px; display: grid; gap: 8px; }
+.channel-bars > div { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 12px; }
+.channel-bars dt { font-size: 13px; font-weight: 700; color: var(--muted); }
+.channel-bars dd { display: grid; grid-template-columns: 1fr 40px; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: inherit; background: var(--lime-strong); }
+.bar--speed i { background: var(--green); }
