@@ -4,3 +4,5 @@ node_modules/
 .expo
 node_modules
 eas.json
+# Local review screenshots (not committed)
+screenshots/
