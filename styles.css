@@ -143,6 +143,8 @@ p { text-wrap: pretty; }
   margin-bottom: 14px;
 }
 
+.nowrap { white-space: nowrap; }
+
 /* Lime marker highlight for key phrases */
 mark {
   color: inherit;
@@ -331,3 +333,179 @@ mark {
 }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; }
 .footer-copy { font-size: 14px; color: var(--muted); width: 100%; }
+/* Links keep 44px tap targets but line up with the logo's edge */
+@media (max-width: 599px) { .footer-links { margin-inline: -10px; } }
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.hero { padding-block: clamp(40px, 6vw, 88px) var(--section-y); }
+
+.hero-grid {
+  display: grid;
+  gap: clamp(48px, 6vw, 72px);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+}
+
+.hero-copy h1 { margin-top: 22px; }
+.hero-lead { margin-top: 24px; max-width: 34em; }
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.hero-note {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--muted);
+}
+@media (max-width: 479px) {
+  .hero-ctas .btn { flex: 1 1 100%; }
+}
+
+/* Phone mockup (built in HTML/CSS, demo data only) */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* Room for the floating card to overlap the phone's bottom-left corner */
+  padding: 0 0 28px clamp(0px, 6vw, 56px);
+}
+.phone {
+  width: min(320px, 82vw);
+  background: var(--ink);
+  border-radius: 46px;
+  padding: 12px;
+  box-shadow: 0 40px 80px rgba(19,18,16,.22), 0 10px 24px rgba(19,18,16,.12);
+}
+.phone-screen {
+  background: var(--bg);
+  border-radius: 35px;
+  padding: 14px 16px 22px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.app-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px 12px;
+}
+.app-status-icons { display: inline-flex; gap: 3px; }
+.app-status-icons i { display: block; width: 14px; height: 7px; border-radius: 2px; background: var(--ink); opacity: .85; }
+.app-status-icons i:first-child { width: 10px; }
+.app-greeting { font-size: 12px; color: var(--muted); }
+.app-home {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.app-home svg { width: 16px; height: 16px; color: var(--muted); margin-top: 3px; }
+
+.app-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.app-stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 8px 7px;
+}
+.app-stat b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+.app-stat span { display: block; font-size: 10.5px; color: var(--muted); }
+
+.app-sold {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green-tint);
+  border: 1px solid rgba(22,163,74,.25);
+  border-radius: 12px;
+  padding: 9px 10px;
+  margin-bottom: 14px;
+  color: var(--green);
+}
+.app-sold div { flex: 1; min-width: 0; }
+.app-sold b { display: block; font-size: 12.5px; }
+.app-sold span { display: block; font-size: 11px; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-sold svg { width: 14px; height: 14px; flex-shrink: 0; }
+.app-sold-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; box-shadow: 0 0 0 4px rgba(22,163,74,.15); }
+
+.app-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
+.app-items { list-style: none; display: grid; gap: 6px; }
+.app-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+.app-thumb {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+.app-thumb svg { width: 17px; height: 17px; }
+.app-item-name { flex: 1; min-width: 0; font-weight: 600; font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-item-name small { display: block; font-size: 10.5px; font-weight: 500; color: var(--muted); }
+.app-item-end { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+.app-item-end b { font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* Status pills (shared by every app preview) */
+.status {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.status-sold   { background: var(--green-tint); color: var(--green); }
+.status-ebay   { background: var(--ebay-tint);  color: var(--ebay); }
+.status-stored { background: var(--blue-tint);  color: var(--blue); }
+
+/* "It's in here" card overlapping the phone's corner */
+.find-card {
+  position: absolute;
+  left: max(0px, calc(50% - min(160px, 41vw) - 36px));
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 2px solid var(--lime);
+  border-radius: 18px;
+  padding: 12px 18px 12px 12px;
+  box-shadow: var(--shadow-float);
+}
+.find-card-icon {
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--lime);
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.find-card-icon svg { width: 22px; height: 22px; }
+.find-card small { display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
+.find-card b { display: block; font-size: 16px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
