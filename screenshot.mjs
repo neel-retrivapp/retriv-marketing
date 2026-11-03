@@ -28,7 +28,8 @@ for (const width of widths) {
     for (const el of document.querySelectorAll('body *')) {
       const r = el.getBoundingClientRect();
       if (!r.width || getComputedStyle(el).visibility === 'hidden') continue;
-      if (el.closest('.visually-hidden, .skip-link, [inert]')) continue;
+      // Deliberately off-screen: screen-reader text, skip link, hidden tab panels, form spam trap
+      if (el.closest('.visually-hidden, .skip-link, [inert], .hp')) continue;
       if (r.right > vw + 0.5 || r.left < -0.5) {
         offenders.push(`${el.tagName.toLowerCase()}.${[...el.classList].join('.')} [${Math.round(r.left)}→${Math.round(r.right)}]`);
       }

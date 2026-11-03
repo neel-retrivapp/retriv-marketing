@@ -434,7 +434,51 @@
         </div>
       </div>
     </section>
-    <!-- SECTION: early-access -->
+    <!-- ─── Early access ─────────────────────────────────────── -->
+    <section class="section signup" id="early-access" aria-labelledby="signup-title">
+      <div class="container">
+        <div class="card signup-card">
+          <h2 id="signup-title">Clear the clutter. <mark>Keep the cash.</mark></h2>
+          <p class="lead">Retriv is putting the finishing touches on the app. Join early access and we'll tell you the moment it launches.</p>
+
+          <form class="signup-form" data-waitlist novalidate>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-error" />
+              <p class="field-error" id="email-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="persona">What best describes you? <span class="optional">(optional)</span></label>
+              <select id="persona" name="persona">
+                <option value="">Choose one</option>
+                <option value="family">Clearing a family home</option>
+                <option value="spring">Spring clear-out</option>
+                <option value="reseller">I buy and sell a lot</option>
+                <option value="company">House clearance company</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <!-- Spam trap: hidden from people, often filled in by bots -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Leave this empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Join early access</button>
+            <p class="form-error" role="alert" hidden></p>
+            <p class="consent">We'll only email you about Retriv's launch. Unsubscribe any time. <a href="/privacy.html">Read our privacy notice</a>.</p>
+          </form>
+
+          <div class="signup-success" tabindex="-1" hidden>
+            <span class="signup-success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+            </span>
+            <p><strong>You're on the list.</strong> We'll be in touch when Retriv launches.</p>
+          </div>
+
+          <p class="signup-contact">Questions? Email us at <a href="mailto:hello@retriv.app">hello@retriv.app</a></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ─── Footer ─────────────────────────────────────────────── -->

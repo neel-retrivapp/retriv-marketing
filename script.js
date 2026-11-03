@@ -1,3 +1,13 @@
+// ═══ CONFIG ════════════════════════════════════════════════════
+// TODO(waitlist): set this to the early-access provider's endpoint before
+// launch (Formspree, Mailchimp/Kit, our own API, …). The form POSTs JSON:
+//   { email, persona, source: 'retriv.app' }
+// and treats any 2xx response as success. While it's empty, the live site
+// asks people to email hello@retriv.app instead of silently dropping them
+// (on localhost it simulates success so the flow can be reviewed).
+const WAITLIST_ENDPOINT = '';
+// ═══════════════════════════════════════════════════════════════
+
 // ─── Mobile menu ────────────────────────────────────────────────
 (function () {
   const toggle = document.querySelector('.nav-toggle');
@@ -61,3 +71,85 @@ document.addEventListener('click', (e) => {
   const field = document.getElementById('persona');
   if (link && field) field.value = link.dataset.persona;
 });
+
+// ─── Early-access form ──────────────────────────────────────────
+(function () {
+  const form = document.querySelector('[data-waitlist]');
+  if (!form) return;
+  const email = form.querySelector('#email');
+  const emailError = form.querySelector('#email-error');
+  const formError = form.querySelector('.form-error');
+  const button = form.querySelector('button[type="submit"]');
+  const success = document.querySelector('.signup-success');
+  const buttonLabel = button.textContent;
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  let attempted = false;
+
+  const emailProblem = () => {
+    const value = email.value.trim();
+    if (!value) return 'Enter your email address.';
+    if (!EMAIL_RE.test(value)) return 'Enter a valid email address, like name@example.com.';
+    return '';
+  };
+  const showEmailError = (message) => {
+    emailError.textContent = message;
+    emailError.hidden = !message;
+    email.setAttribute('aria-invalid', String(!!message));
+  };
+  const showFormError = (message) => {
+    formError.textContent = message;
+    formError.hidden = !message;
+  };
+  const setLoading = (loading) => {
+    button.disabled = loading;
+    button.setAttribute('aria-busy', String(loading));
+    button.textContent = loading ? 'Joining…' : buttonLabel;
+  };
+
+  // Re-validate as they type once they've tried to submit
+  email.addEventListener('input', () => { if (attempted) showEmailError(emailProblem()); });
+
+  async function send(payload) {
+    if (!WAITLIST_ENDPOINT) {
+      if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+        console.warn('[waitlist] WAITLIST_ENDPOINT not set — simulating success on localhost', payload);
+        await new Promise((r) => setTimeout(r, 700));
+        return;
+      }
+      throw new Error("Early-access sign-ups aren't open just yet. Email hello@retriv.app and we'll add you to the list.");
+    }
+    let res;
+    try {
+      res = await fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      throw new Error("We couldn't reach the server. Check your connection and try again.");
+    }
+    if (!res.ok) throw new Error('Something went wrong on our side. Please try again in a moment.');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    attempted = true;
+    showFormError('');
+    const problem = emailProblem();
+    showEmailError(problem);
+    if (problem) { email.focus(); return; }
+    // Spam trap filled in: pretend it worked and drop it
+    if (form.website.value) { form.hidden = true; success.hidden = false; return; }
+
+    setLoading(true);
+    try {
+      await send({ email: email.value.trim(), persona: form.persona.value || null, source: 'retriv.app' });
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    } catch (err) {
+      showFormError(err.message);
+      setLoading(false);
+    }
+  });
+})();
