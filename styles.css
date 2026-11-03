@@ -509,3 +509,48 @@ mark {
 .find-card-icon svg { width: 22px; height: 22px; }
 .find-card small { display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
 .find-card b { display: block; font-size: 16px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
+
+/* ─── Cards (shared) ─────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius-card);
+}
+
+.icon-tile {
+  width: 48px; height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--lime);
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.icon-tile svg { width: 24px; height: 24px; }
+
+/* ─── How it works ───────────────────────────────────────────── */
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1023px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px)  { .steps { grid-template-columns: 1fr; } }
+
+.step { padding: 26px 24px 28px; }
+.step-num {
+  margin-top: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+.step h3 { margin-top: 6px; }
+.step p:last-child {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-2);
+}
