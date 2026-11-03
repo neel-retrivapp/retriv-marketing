@@ -33,6 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -190,7 +191,134 @@
         </ol>
       </div>
     </section>
-    <!-- SECTION: who -->
+    <!-- ─── Who it's for ─────────────────────────────────────── -->
+    <section class="section who" id="who" aria-labelledby="who-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Who it's for</p>
+          <h2 id="who-title">However much you've got to sort</h2>
+        </div>
+
+        <div class="tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Who Retriv is for">
+            <button class="tab" type="button" role="tab" id="tab-family" aria-controls="panel-family" aria-selected="true">Clearing a family home</button>
+            <button class="tab" type="button" role="tab" id="tab-spring" aria-controls="panel-spring" aria-selected="false" tabindex="-1">Spring clear-out</button>
+            <button class="tab" type="button" role="tab" id="tab-lots" aria-controls="panel-lots" aria-selected="false" tabindex="-1">Lots of stuff</button>
+            <button class="tab" type="button" role="tab" id="tab-company" aria-controls="panel-company" aria-selected="false" tabindex="-1">Clearance companies</button>
+          </div>
+
+          <div class="tab-panels">
+            <!-- Clearing a family home -->
+            <div class="tab-panel card is-active" role="tabpanel" id="panel-family" aria-labelledby="tab-family" tabindex="0">
+              <div class="panel-copy">
+                <h3>Find out what it is. Sell when you're ready.</h3>
+                <p>Going through a loved one's house means finding things you don't recognise and can't value. Snap a photo and Retriv tells you what it is, what it's worth and where it would sell best. There's no rush to sell anything.</p>
+                <ul class="ticks">
+                  <li>Identify unfamiliar items and get a value in seconds</li>
+                  <li>Build an inventory of the house, box by box, at your own pace</li>
+                  <li>List on the recommended marketplace only when you're ready</li>
+                </ul>
+                <a href="#early-access" class="btn btn-primary" data-persona="family">Get early access</a>
+              </div>
+              <div class="panel-preview" aria-hidden="true">
+                <div class="pv-card">
+                  <p class="pv-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/></svg>AI identified in seconds</p>
+                  <p class="pv-title">French brass carriage clock, c. 1900</p>
+                  <div class="pv-row"><span>Estimated value</span><b>£180–£260</b></div>
+                </div>
+                <div class="pv-card pv-card--lime">
+                  <div class="pv-row"><span><b class="pv-strong">eBay</b> · Best match</span><b>£220</b></div>
+                </div>
+                <div class="pv-card pv-card--muted">
+                  <div class="pv-estate">
+                    <span class="pv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>
+                    <span><b class="pv-strong">Mum &amp; Dad's house</b><small>86 items · 12 boxes · nothing listed yet</small></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Spring clear-out -->
+            <div class="tab-panel card" role="tabpanel" id="panel-spring" aria-labelledby="tab-spring" tabindex="0">
+              <div class="panel-copy">
+                <h3>That stuff gathering dust is worth a few quid.</h3>
+                <p>Old consoles, headphones, trainers, the camera you never use. Snap them, see what they're worth, box them up and get your space back while they sell.</p>
+                <ul class="ticks">
+                  <li>See what your clutter is worth before you bin it</li>
+                  <li>Box it all up today and reclaim your space</li>
+                  <li>Get a nudge with the exact box when something sells</li>
+                </ul>
+                <a href="#early-access" class="btn btn-primary" data-persona="spring">Get early access</a>
+              </div>
+              <div class="panel-preview" aria-hidden="true">
+                <div class="pv-card pv-total">
+                  <span>Sitting in your cupboards</span>
+                  <b>£715</b>
+                </div>
+                <div class="pv-sold"><span class="pv-sold-dot"></span><span><b>Nintendo Switch Lite · £115</b><small>Spare room box 1 — go get it</small></span></div>
+                <div class="pv-sold"><span class="pv-sold-dot"></span><span><b>Bose QC35 headphones · £80</b><small>Spare room box 1 — go get it</small></span></div>
+                <div class="pv-sold"><span class="pv-sold-dot"></span><span><b>Adidas Sambas UK 8 · £65</b><small>Spare room box 1 — go get it</small></span></div>
+              </div>
+            </div>
+
+            <!-- Lots of stuff -->
+            <div class="tab-panel card" role="tabpanel" id="panel-lots" aria-labelledby="tab-lots" tabindex="0">
+              <div class="panel-copy">
+                <h3>Your inventory, finally under control.</h3>
+                <p>If you own a lot and buy and sell often, a spreadsheet can't keep up. Bulk-scan items one after another and let the AI fill in the details, then always know where everything lives.</p>
+                <ul class="ticks">
+                  <li>Bulk scan: snap item after item, no typing</li>
+                  <li>Names, conditions, categories and prices filled in by AI</li>
+                  <li>Every item in a box, every box in its place</li>
+                </ul>
+                <a href="#early-access" class="btn btn-primary" data-persona="reseller">Get early access</a>
+              </div>
+              <div class="panel-preview" aria-hidden="true">
+                <div class="pv-card pv-bulk">
+                  <span class="pv-bulk-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Bulk scan</span>
+                  <span class="pv-queued">6 queued</span>
+                  <span class="pv-switch"><span></span></span>
+                </div>
+                <ul class="pv-list">
+                  <li><span>Sony WH-1000XM4<small class="pv-ai">AI filled</small></span><b>£145</b></li>
+                  <li><span>Fujifilm X100F<small class="pv-ai">AI filled</small></span><b>£620</b></li>
+                  <li><span>Nike Dunk Low UK 9<small class="pv-ai">AI filled</small></span><b>£95</b></li>
+                  <li><span>Boss DS-1 pedal<small class="pv-ai">AI filled</small></span><b>£35</b></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Clearance companies -->
+            <div class="tab-panel card" role="tabpanel" id="panel-company" aria-labelledby="tab-company" tabindex="0">
+              <div class="panel-copy">
+                <h3>Run every estate from one place.</h3>
+                <p>Create an estate for each job, invite your staff and scan the house together. Sell the best pieces, clear the rest, and see resale income across every job.</p>
+                <ul class="ticks">
+                  <li>Separate estates so items and value never get mixed up</li>
+                  <li>Invite staff to scan into an estate from their own phones</li>
+                  <li>See what's worth listing and which box to pull when it sells</li>
+                </ul>
+                <a href="#early-access" class="btn btn-primary" data-persona="company">Talk to us</a>
+              </div>
+              <div class="panel-preview" aria-hidden="true">
+                <p class="pv-heading">Your estates</p>
+                <ul class="pv-list pv-list--estates">
+                  <li><span>14 Elm Grove<small>236 items · 4 staff</small></span></li>
+                  <li><span>3 Kingsway Court<small>96 items · 2 staff</small></span></li>
+                  <li><span>88 Hill Rise<small>Starts Thursday</small></span></li>
+                </ul>
+                <p class="pv-heading">Team scans</p>
+                <ul class="pv-feed">
+                  <li><span class="pv-avatar">P</span><span><b>Priya</b> · Omega Seamaster 1968<small>Box B1</small></span><b>£450</b></li>
+                  <li><span class="pv-avatar">D</span><span><b>Dan</b> · Royal Worcester vase<small>Box K2</small></span><b>£60</b></li>
+                  <li><span class="pv-avatar">M</span><span><b>Mo</b> · Ercol dining chairs (x4)<small>Van 2</small></span><b>£320</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- SECTION: find -->
     <!-- SECTION: channels -->
     <!-- SECTION: teams -->

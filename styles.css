@@ -554,3 +554,171 @@ mark {
   line-height: 1.55;
   color: var(--text-2);
 }
+
+/* ─── Who it's for: tabs ─────────────────────────────────────── */
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.tab {
+  min-height: 48px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.tab:hover { border-color: #CFCBC2; color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-dark); }
+
+/* Panels share one grid cell, so the area is always as tall as the tallest
+   panel and nothing below moves when tabs switch. Without JS (no .js class)
+   the tab buttons are hidden and every panel shows in turn. */
+.tab-list { display: none; }
+.js .tab-list { display: flex; }
+.tab-panels { display: grid; gap: 16px; }
+.js .tab-panels { gap: 0; }
+.js .tab-panel { grid-area: 1 / 1; }
+.js .tab-panel:not(.is-active) { visibility: hidden; }
+
+.tab-panel {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  /* Top-aligned: panels share the tallest panel's height, so centring would
+     leave gaps above shorter ones */
+  align-items: start;
+  align-content: start;
+  padding: clamp(24px, 4vw, 48px);
+}
+@media (min-width: 900px) {
+  .tab-panel { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); }
+}
+.panel-copy h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); letter-spacing: -0.03em; }
+.panel-copy > p { margin-top: 14px; color: var(--text-2); }
+.panel-copy .btn { margin-top: 28px; }
+
+.ticks { list-style: none; margin-top: 22px; display: grid; gap: 12px; }
+.ticks li {
+  position: relative;
+  padding-left: 34px;
+  font-size: 16.5px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.ticks li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23131210' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") no-repeat center / 14px;
+}
+
+/* App-style previews */
+.panel-preview {
+  background: var(--surface-2);
+  border-radius: 18px;
+  padding: clamp(16px, 2.5vw, 24px);
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  font-size: 14.5px;
+}
+.pv-card {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.pv-card--lime { border-color: var(--lime-strong); }
+.pv-card--muted { background: transparent; }
+.pv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--olive);
+  background: var(--lime-tint);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.pv-tag svg { width: 13px; height: 13px; }
+.pv-title { margin-top: 10px; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.pv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+  color: var(--text-2);
+}
+.pv-card--lime .pv-row { margin-top: 0; }
+.pv-row > b, .pv-list b, .pv-feed > li > b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pv-strong { color: var(--ink); }
+.pv-estate { display: flex; align-items: center; gap: 12px; }
+.pv-icon {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--surface);
+  border: var(--border);
+  flex-shrink: 0;
+}
+.pv-icon svg { width: 18px; height: 18px; }
+.pv-estate small, .pv-list small, .pv-feed small, .pv-sold small { display: block; font-size: 12.5px; color: var(--muted); font-weight: 500; }
+
+.pv-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.pv-total span { color: var(--text-2); font-weight: 600; }
+.pv-total b { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.pv-sold {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--green-tint);
+  border: 1.5px solid rgba(22,163,74,.25);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.pv-sold b { color: var(--green); font-size: 14.5px; }
+.pv-sold-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; box-shadow: 0 0 0 4px rgba(22,163,74,.15); }
+
+.pv-bulk { display: flex; align-items: center; gap: 10px; }
+.pv-bulk-label { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; margin-right: auto; }
+.pv-bulk-label svg { width: 17px; height: 17px; color: var(--olive); }
+.pv-queued { font-size: 12px; font-weight: 700; color: var(--olive); background: var(--lime-tint); padding: 4px 9px; border-radius: 999px; }
+.pv-switch { width: 42px; height: 26px; border-radius: 999px; background: var(--lime-strong); position: relative; flex-shrink: 0; }
+.pv-switch span { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgba(19,18,16,.25); }
+
+.pv-heading { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-top: 4px; }
+.pv-list, .pv-feed { list-style: none; display: grid; gap: 8px; }
+.pv-list li, .pv-feed li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface);
+  border: var(--border);
+  border-radius: 14px;
+  padding: 11px 14px;
+}
+.pv-list li > span, .pv-feed li > span:not(.pv-avatar) { min-width: 0; font-weight: 600; }
+.pv-feed li > span:not(.pv-avatar) { flex: 1; font-weight: 500; color: var(--text-2); }
+.pv-feed li > span b { color: var(--ink); }
+.pv-ai { color: var(--olive) !important; font-weight: 700 !important; }
+.pv-avatar {
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}

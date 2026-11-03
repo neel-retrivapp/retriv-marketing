@@ -19,3 +19,45 @@
     }
   });
 })();
+
+// ─── Persona tabs (WAI-ARIA tabs, automatic activation) ─────────
+(function () {
+  document.querySelectorAll('[data-tabs]').forEach((root) => {
+    const tabs = [...root.querySelectorAll('[role="tab"]')];
+    const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+
+    const select = (index, focus) => {
+      tabs.forEach((tab, i) => {
+        const on = i === index;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panels[i].classList.toggle('is-active', on);
+        // Hidden panels keep their space (no layout shift) but can't be reached
+        panels[i].inert = !on;
+      });
+      if (focus) tabs[index].focus();
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i, false));
+      tab.addEventListener('keydown', (e) => {
+        const last = tabs.length - 1;
+        const next = { ArrowRight: i === last ? 0 : i + 1, ArrowDown: i === last ? 0 : i + 1,
+                       ArrowLeft: i === 0 ? last : i - 1, ArrowUp: i === 0 ? last : i - 1,
+                       Home: 0, End: last }[e.key];
+        if (next === undefined) return;
+        e.preventDefault();
+        select(next, true);
+      });
+    });
+
+    select(Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true')), false);
+  });
+})();
+
+// ─── Persona links preselect "What best describes you?" ─────────
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('[data-persona]');
+  const field = document.getElementById('persona');
+  if (link && field) field.value = link.dataset.persona;
+});
