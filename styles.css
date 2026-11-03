@@ -831,3 +831,17 @@ mark {
 .bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
 .bar i { display: block; height: 100%; border-radius: inherit; background: var(--lime-strong); }
 .bar--speed i { background: var(--green); }
+
+/* ─── For house clearance companies ──────────────────────────── */
+.teams { background: var(--surface-2); }
+.team-features {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 899px) { .team-features { grid-template-columns: 1fr; } }
+.team-feature { padding: 28px 26px 30px; }
+.team-feature h3 { margin-top: 20px; }
+.team-feature p { margin-top: 10px; font-size: 16.5px; color: var(--text-2); }
+.teams-cta { margin-top: 36px; }
