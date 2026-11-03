@@ -19,6 +19,7 @@
   --lime-tint: #F3FAE1;   /* soft lime badges */
   --green: #16A34A;       /* "sold" state */
   --green-tint: #F0FDF4;
+  --green-text: #15803D;  /* "sold" text: --green is only 3.2:1 on --green-tint */
   --blue: #1D4ED8;        /* "stored" pill */
   --blue-tint: #EFF6FF;
   --ebay: #B45309;        /* "on eBay" pill */
@@ -437,7 +438,7 @@ mark {
   border-radius: 12px;
   padding: 9px 10px;
   margin-bottom: 14px;
-  color: var(--green);
+  color: var(--green-text);
 }
 .app-sold div { flex: 1; min-width: 0; }
 .app-sold b { display: block; font-size: 12.5px; }
@@ -481,7 +482,7 @@ mark {
   border-radius: 999px;
   white-space: nowrap;
 }
-.status-sold   { background: var(--green-tint); color: var(--green); }
+.status-sold   { background: var(--green-tint); color: var(--green-text); }
 .status-ebay   { background: var(--ebay-tint);  color: var(--ebay); }
 .status-stored { background: var(--blue-tint);  color: var(--blue); }
 
@@ -688,7 +689,7 @@ mark {
   border-radius: 14px;
   padding: 12px 14px;
 }
-.pv-sold b { color: var(--green); font-size: 14.5px; }
+.pv-sold b { color: var(--green-text); font-size: 14.5px; }
 .pv-sold-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; box-shadow: 0 0 0 4px rgba(22,163,74,.15); }
 
 .pv-bulk { display: flex; align-items: center; gap: 10px; }
@@ -761,7 +762,7 @@ mark {
   flex-shrink: 0;
 }
 .sold-banner-icon svg { width: 18px; height: 18px; }
-.sold-banner b { display: block; color: var(--green); font-size: 16px; }
+.sold-banner b { display: block; color: var(--green-text); font-size: 16px; }
 .sold-banner small { display: block; font-size: 14px; color: var(--text-2); }
 
 .box-label {
