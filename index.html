@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retriv — Photograph. Store. Sell.</title>
+  <meta name="description" content="Retriv turns clutter into cash. Photograph items, assign them to labelled boxes, list on eBay — and when something sells, we tell you exactly where to find it." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="150 205 735 520" aria-hidden="true">
+          <rect x="212" y="310" width="600" height="340" rx="24" fill="#C8E44A"/>
+          <rect x="182" y="230" width="660" height="100" rx="20" fill="#A8C43A"/>
+          <rect x="442" y="226" width="140" height="108" rx="10" fill="#131210" opacity="0.18"/>
+          <path d="M512 610 L512 390 M512 390 L420 472 M512 390 L604 472"
+                stroke="#131210" stroke-width="52" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <rect x="228" y="248" width="36" height="36" rx="6" fill="#131210" opacity="0.22"/>
+          <rect x="760" y="248" width="36" height="36" rx="6" fill="#131210" opacity="0.22"/>
+        </svg>
+      </span>
+      <span class="nav-logo-text">retriv</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#who-its-for">Who it's for</a>
+      <span class="nav-coming-soon">Coming soon</span>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Coming soon — AI-powered resale</div>
+      <h1 class="hero-headline">
+        Snap it.<br />
+        Box it. Sell it.<br />
+        <em>We find it.</em>
+      </h1>
+      <p class="hero-sub">
+        Photograph any item, assign it to a labelled box, and list it on eBay in one tap.
+        When it sells, Retriv sends you a notification with the exact box and shelf to go to.
+        No more frantic searching.
+      </p>
+      <div class="hero-cta">
+        <a href="#how-it-works" class="btn btn-ghost btn-lg">See how it works</a>
+        <a href="mailto:hello@retriv.app" class="btn btn-primary btn-lg">Get in touch</a>
+      </div>
+      <div class="hero-social-proof">
+        Built for house clearances, estate sellers &amp; resellers
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-scene">
+
+        <!-- floating: sold notification -->
+        <div class="hero-float hero-float--sold">
+          <div class="hero-float-dot"></div>
+          <div>
+            <div class="hero-float-title">Sold on eBay 🎉</div>
+            <div class="hero-float-sub">Polaroid 600 Camera · £85</div>
+            <div class="hero-float-loc">📦 Box A3, Shelf 2 — go get it</div>
+          </div>
+        </div>
+
+        <!-- the phone -->
+        <div class="phone-mockup">
+          <div class="phone-notch-bar"></div>
+          <div class="phone-screen">
+
+            <div class="hp-toprow">
+              <div class="hp-back">‹</div>
+              <div class="hp-screen-title">AI Result</div>
+            </div>
+
+            <div class="hp-item-card">
+              <div class="hp-photo">📸</div>
+              <div class="hp-ai-tag">✦ AI Identified</div>
+              <div class="hp-name">Polaroid 600 Camera</div>
+              <div class="hp-desc">Classic instant camera in working condition. Minor cosmetic wear on body.</div>
+              <div class="hp-cond">Condition: <span>Good</span></div>
+            </div>
+
+            <div class="hp-price-block">
+              <div class="hp-price-row">
+                <span class="hp-price-lbl">AI Recommended Price</span>
+                <span class="hp-price-val">£85</span>
+              </div>
+              <div class="hp-price-row hp-price-row--border">
+                <span class="hp-price-lbl">Confidence</span>
+                <span class="hp-conf">🟢 High</span>
+              </div>
+            </div>
+
+            <div class="hp-assign-lbl">Assign to a storage box:</div>
+            <div class="hp-chips">
+              <div class="hp-chip hp-chip--on">Box A3</div>
+              <div class="hp-chip">Box B1</div>
+              <div class="hp-chip hp-chip--dash">＋ New</div>
+            </div>
+
+            <div class="hp-ai-lbl">✦ AI Channel Picks</div>
+
+            <div class="hp-ch-card">
+              <div class="hp-best-badge">⭐ Best match</div>
+              <div class="hp-ch-top">
+                <div class="hp-ch-logo">🛒</div>
+                <div class="hp-ch-mid">
+                  <div class="hp-ch-name">eBay</div>
+                  <div class="hp-ch-reason">High demand for vintage cameras</div>
+                </div>
+                <div class="hp-ch-earn">
+                  <div class="hp-ch-price">£85</div>
+                  <div class="hp-ch-earn-lbl">est. earned</div>
+                </div>
+              </div>
+              <div class="hp-bar-row">
+                <span class="hp-bar-lbl">Demand</span>
+                <div class="hp-bar-track"><div class="hp-bar-fill" style="width:87%;background:#E53238"></div></div>
+                <span class="hp-bar-pct">87%</span>
+              </div>
+              <div class="hp-bar-row">
+                <span class="hp-bar-lbl">Speed</span>
+                <div class="hp-bar-track"><div class="hp-bar-fill" style="width:72%;background:#16A34A"></div></div>
+                <span class="hp-bar-pct">72%</span>
+              </div>
+              <div class="hp-ch-btn">List on eBay →</div>
+            </div>
+
+            <div class="hp-save-btn">✓ Save to inventory</div>
+
+          </div>
+        </div>
+
+        <!-- floating: AI speed chip -->
+        <div class="hero-float hero-float--ai">
+          ✦ Identified in 3 seconds
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container problem-inner">
+      <div class="problem-text">
+        <h2>Boxes everywhere. No idea what's in them.</h2>
+        <p>
+          You've cleared the house. You know there's value in those boxes — cameras, jewellery,
+          vintage toys — but finding any one thing when it sells is a nightmare.
+          Most people give up and donate it all.
+        </p>
+        <p>
+          Retriv changes that. Every item gets photographed, AI-identified, and linked to a
+          QR-labelled box. When a buyer pays, you get a push notification: <strong>"Vintage Polaroid —
+          Box A3, Shelf 2."</strong> Walk straight to it.
+        </p>
+      </div>
+      <div class="problem-stats">
+        <div class="stat">
+          <div class="stat-number">3×</div>
+          <div class="stat-label">more items listed vs manual tracking</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10s</div>
+          <div class="stat-label">to scan and price an item with AI</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0</div>
+          <div class="stat-label">frantic searching when something sells</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how-it-works">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Four steps from cupboard to cash</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-icon">📸</div>
+          <h3>Photograph</h3>
+          <p>Open Retriv and point your camera. Take up to four photos per item.</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-icon">🤖</div>
+          <h3>AI identifies</h3>
+          <p>Our AI names the item, describes its condition, and suggests a price range based on live market data.</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-icon">📦</div>
+          <h3>Assign a box</h3>
+          <p>Scan the QR code on whichever box you drop it in. Retriv remembers exactly where it went.</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-icon">💸</div>
+          <h3>List &amp; retrieve</h3>
+          <p>Push to eBay in one tap. When it sells, a notification tells you which box to open.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP PREVIEW -->
+  <section class="app-preview">
+    <div class="container">
+      <div class="section-label">The app</div>
+      <h2 class="section-title">See Retriv in action</h2>
+      <p class="preview-sub">Three screens. Every step from scan to sale, right in your pocket.</p>
+      <div class="phones-row">
+
+        <div class="preview-phone">
+          <img src="assets/mockup-home.jpg" alt="Retriv dashboard screen" class="mockup-img mockup-img--sm" width="210" height="420">
+          <div class="preview-caption">Dashboard</div>
+        </div>
+
+        <div class="preview-phone preview-phone--center">
+          <img src="assets/mockup-scan.jpg" alt="Retriv AI scan result screen" class="mockup-img mockup-img--md" width="230" height="468">
+          <div class="preview-caption">AI Scan Result</div>
+        </div>
+
+        <div class="preview-phone">
+          <img src="assets/mockup-earnings.jpg" alt="Retriv earnings screen" class="mockup-img mockup-img--sm" width="210" height="420">
+          <div class="preview-caption">Earnings</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to sell faster</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>AI item recognition</h3>
+          <p>Powered by Claude — identifies name, condition, category, and recommended price in seconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>QR-linked box system</h3>
+          <p>Create labelled boxes with auto-generated QR codes. Scan to assign, scan to retrieve.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛒</div>
+          <h3>One-tap eBay listing</h3>
+          <p>AI writes the title and description. You approve, we list. No copy-pasting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Instant sold alerts</h3>
+          <p>Push notification the moment something sells — with the box location included.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Earnings dashboard</h3>
+          <p>Track what's sold, what's listed, estimated inventory value, and total revenue.</p>
+        </div>
+        <div class="feature-card feature-card--coming">
+          <div class="feature-icon">🌐</div>
+          <h3>Multichannel <span class="coming-badge">Coming soon</span></h3>
+          <p>Vinted, Depop, Facebook Marketplace, Etsy — one inventory, everywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="audience" id="who-its-for">
+    <div class="container">
+      <div class="section-label">Who it's for</div>
+      <h2 class="section-title">Built for anyone with a lot to sell</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-emoji">🏠</div>
+          <h3>Home clearances</h3>
+          <p>Lost a parent. Downsizing. Moving abroad. Retriv helps you turn a house full of belongings into organised, sellable inventory — at a pace that suits you.</p>
+        </div>
+        <div class="audience-card audience-card--accent">
+          <div class="audience-emoji">🚚</div>
+          <h3>Clearance companies</h3>
+          <p>Run multiple estates at once. Retriv keeps each one separate, tracks what's in every box, and makes sure your team can find anything instantly.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-emoji">🔄</div>
+          <h3>Resellers</h3>
+          <p>Car boots, charity shops, job lots. If you buy to sell, Retriv's inventory system keeps your stock under control as it scales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="coming-soon">
+    <div class="container coming-soon-inner">
+      <div class="coming-soon-badge">Coming soon</div>
+      <h2>Retriv is on its way</h2>
+      <p>We're putting the finishing touches on the app. If you'd like to know when we launch, drop us a message.</p>
+      <a href="mailto:hello@retriv.app" class="btn btn-primary btn-lg">hello@retriv.app</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="nav-logo-mark" style="width:28px;height:28px;border-radius:7px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="150 205 735 520" aria-hidden="true">
+            <rect x="212" y="310" width="600" height="340" rx="24" fill="#C8E44A"/>
+            <rect x="182" y="230" width="660" height="100" rx="20" fill="#A8C43A"/>
+            <rect x="442" y="226" width="140" height="108" rx="10" fill="#131210" opacity="0.18"/>
+            <path d="M512 610 L512 390 M512 390 L420 472 M512 390 L604 472"
+                  stroke="#131210" stroke-width="52" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.2rem;color:var(--bg);">retriv</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:hello@retriv.app">hello@retriv.app</a>
+      </div>
+      <div class="footer-copy">© 2026 Retriv. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
